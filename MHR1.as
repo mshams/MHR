@@ -13,7 +13,7 @@
  * 
  * Usage:
  *    import classes.mshams.MHR1;
- * 	  trace(new MHR1("Your String1 Here..."));
+ *    trace(new MHR1("Your String1 Here..."));
  *    trace(new MHR1("Your String2 Here..."));
  *
  *    var myHash: MHR1 = new MHR1();
@@ -70,8 +70,10 @@ package classes.mshams{
 
 
 		public function getHash(input:String):String {
-			var magicNums:Array = new Array(1073676287,2719025332,3429132025,1971238619,3760598361,2065482987,5463458053,3367900313,
-			      							5915587277,1500450271,3267000013,5754853343,4093082899,9576890767,3628273133,2860486313);
+			var magicNums:Array = new Array(1073676287,2719025332,3429132025,1971238619,3760598361,
+						        2065482987,5463458053,3367900313,5915587277,1500450271,
+							3267000013,5754853343,4093082899,9576890767,3628273133,
+							2860486313);
 			
 			var temp:Array = new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 			var tmpHash:String = "";
@@ -79,7 +81,8 @@ package classes.mshams{
 
 			for (var i:uint = 0; i < input.length-1; i++) {
 				for (var j:uint = 0; j < magicNums.length; j++) {
-					temp[j] = (temp[j] + ( magicNums[j]/ ( (input.charCodeAt(i) + 1 ) ^ (i%j) + j ) )   ) ;//% magicNums[j];
+					temp[j] = (temp[j] + ( magicNums[j]/ ( (input.charCodeAt(i) + 1 ) ^ (i%j) + j ) )   ) ;
+					//% magicNums[j];
 				}
 			}
 
@@ -88,7 +91,8 @@ package classes.mshams{
 
 			for (j = 0; j < magicNums.length; j++) {
 				
-				temp[j] = (temp[j] + Math.floor( magicNums[j]/ ( (input.charCodeAt(i) + 1 ) ^ (i%j) + j ) )    ) ;//% magicNums[j];
+				temp[j] = (temp[j] + Math.floor( magicNums[j]/ ( (input.charCodeAt(i) + 1 ) ^ (i%j) + j ) )    ) ;
+				//% magicNums[j];
 				tmpHash = temp[j].toString(16);
 				tmpHash = tmpHash.substr(tmpHash.length - 4,4);
 				
